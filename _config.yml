@@ -1,27 +1,9 @@
 ---
-title: Bartlomé Soccer Academy
-timezone: Europe/Berlin
+title: med24
+timezone: Australia/Melbourne
 collections:
-  about-staff:
-    title: About Staff
-    output: false
-  carousel:
-    title: Carousel
-    output: true
-  news-items:
-    title: News Items
-    output: false
   posts:
     title: Posts
-    output: true
-  primary-partners:
-    title: Primary Partners
-    output: true
-  programs:
-    title: Programs
-    output: false
-  secondary-partners:
-    title: Secondary Partners
     output: true
   uploads:
     title: Uploads
@@ -31,23 +13,20 @@ defaults:
     path: ''
     type: news-items
   values:
-    heading: 
-    link: 
-    image: 
+    heading:
+    link:
+    image:
 - scope:
     path: ''
     type: programs
   values:
-    name: 
-    short: 
-    icon: 
-    cta: 
+    name:
+    short:
+    icon:
+    cta:
 encoding: utf-8
 version: v1
-description: Bartlomé Soccer Academy offers a wide range of programs including 1 on
-  1 and Small Group private sessions, Large Group Soccer Courses, Team & Coaches Clinics
-  and week long Skills Camps. Rest assured, when it comes to Soccer, we have what
-  you're looking for!
+description: A collection of the assets we hold so dear.
 favicon: assets/images/logo.svg
 tv: 4.5.3
 markdown: kramdown
@@ -57,21 +36,17 @@ exclude:
 jekyll_get:
   data: team
   json: https://18f.gsa.gov/hub/api/team/
-social:
-- name: Facebook
-  link: https://www.facebook.com/Bartlom%C3%A9-Soccer-Academy-1699026550336895/
-- name: YouTube
-  link: https://www.youtube.com/channel/UCzMQUxx0ocF0OJqvfqQ1Khw
-- name: Instagram
-  link: http://instagram.com/bartlomesocceracademy
-nav:
-- name: Programs
-  link: "/#programs"
-- name: About
-  drop:
-  - name: BSA
-    link: "/#about-bsa"
-  - name: Staff
-    link: "/#about-staff"
-- name: Contact
-  link: "/#contact"
+# social:
+# - name: Facebook
+#   link: https://www.facebook.com/Bartlom%C3%A9-Soccer-Academy-1699026550336895/
+# nav:
+# - name: Programs
+#   link: "/#programs"
+# - name: About
+#   drop:
+#   - name:
+#     link: "/#about-"
+#   - name: Staff
+#     link: "/#about-staff"
+# - name: Contact
+#   link: "/#contact"

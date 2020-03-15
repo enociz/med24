@@ -16,7 +16,7 @@
   <meta property="og:locale" content="en_CH" />
 
   <meta property="twitter:card" content="summary" />
-  <meta property="twitter:site" content="@bartholomesa />
+  <meta property="twitter:site" content="{{ site.twitter }} />
   <meta property="twitter:title" content="{{ page.title }}" />
   <meta property="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
   {% if page.image %}<meta property="twitter:image" content="" />{% endif %}
@@ -24,9 +24,7 @@
 
   <link rel="icon" href="{{ site.favicon }}" />
 
-  <link rel="author" href="humans.txt" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
   <link rel="stylesheet" href="https://unpkg.com/tachyons@{{ site.tv }}/css/tachyons.min.css"/>
   <link rel="stylesheet" href="css/main.css">
