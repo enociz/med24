@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106744407-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-106744407-2');
+  </script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Study Club #1 – Getting started with Anki (ft. Danki)</title>
+
+	<style>
+	/* webkit printing magic: print all background colors */
+	html {
+		-webkit-print-color-adjust: exact;
+	}
+	* {
+		box-sizing: border-box;
+		-webkit-print-color-adjust: exact;
+	}
+
+	@media only screen {
+		body {
+			margin: 0 auto;
+			padding: 1em;
+			max-width: 900px;
+			color: rgb(55, 53, 47);
+		}
+	}
+
+	a,
+	a.visited {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	.pdf-relative-link-path {
+		font-size: 80%;
+		color: #444;
+	}
+
+	h1,
+	h2,
+	h3 {
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+
+	.page-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-top: 0;
+		margin-bottom: 0.75em;
+		text-transform: uppercase;
+		font-family: sans-serif;
+		letter-spacing: 2px;
+		margin-top: 1em;
+	}
+
+	h1 {
+		font-size: 1.875rem;
+		margin-top: 1.875rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	h3 {
+		font-size: 1.25rem;
+		margin-top: 1.25rem;
+	}
+
+	.source {
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		padding: 1.5em;
+		word-break: break-all;
+	}
+
+	.callout {
+		border-radius: 3px;
+		padding: 1rem;
+	}
+
+	figure {
+		margin: 1.25em 0;
+		page-break-inside: avoid;
+	}
+
+	figcaption {
+		opacity: 0.5;
+		font-size: 85%;
+		margin-top: 0.5em;
+	}
+
+	mark {
+		background-color: transparent;
+	}
+
+	.indented {
+		padding-left: 1.5em;
+	}
+
+	hr {
+		background: transparent;
+		display: block;
+		width: 100%;
+		height: 1px;
+		visibility: visible;
+		border: none;
+		border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	@media only print {
+		img {
+			max-height: 100vh;
+			object-fit: contain;
+		}
+	}
+
+	@page {
+		margin: 1in;
+	}
+
+	.collection-content {
+		font-size: 0.875rem;
+	}
+
+	.column-list {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.column {
+		padding: 0 1em;
+	}
+
+	.column:first-child {
+		padding-left: 0;
+	}
+
+	.column:last-child {
+		padding-right: 0;
+	}
+
+	.table_of_contents-item {
+		display: block;
+		font-size: 0.875rem;
+		line-height: 1.3;
+		padding: 0.125rem;
+	}
+
+	.table_of_contents-indent-1 {
+		margin-left: 1.5rem;
+	}
+
+	.table_of_contents-indent-2 {
+		margin-left: 3rem;
+	}
+
+	.table_of_contents-indent-3 {
+		margin-left: 4.5rem;
+	}
+
+	.table_of_contents-link {
+		text-decoration: none;
+		opacity: 0.7;
+		border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+	}
+
+	table,
+	th,
+	td {
+		border: 1px solid rgba(55, 53, 47, 0.09);
+		border-collapse: collapse;
+	}
+
+	table {
+		border-left: none;
+		border-right: none;
+	}
+
+	th,
+	td {
+		font-weight: normal;
+		padding: 0.25em 0.5em;
+		line-height: 1.5;
+		min-height: 1.5em;
+		text-align: left;
+	}
+
+	th {
+		color: rgba(55, 53, 47, 0.6);
+	}
+
+	ol,
+	ul {
+		margin: 0;
+		margin-block-start: 0.6em;
+		margin-block-end: 0.6em;
+	}
+
+	li > ol:first-child,
+	li > ul:first-child {
+		margin-block-start: 0.6em;
+	}
+
+	ul > li {
+		list-style: disc;
+	}
+
+	ul.to-do-list {
+		text-indent: -1.7em;
+	}
+
+	ul.to-do-list > li {
+		list-style: none;
+	}
+
+	.to-do-children-checked {
+		text-decoration: line-through;
+		opacity: 0.375;
+	}
+
+	ul.toggle > li {
+		list-style: none;
+	}
+
+	ul {
+		padding-inline-start: 1.7em;
+	}
+
+	ul > li {
+		padding-left: 0.1em;
+	}
+
+	ol {
+		padding-inline-start: 1.6em;
+	}
+
+	ol > li {
+		padding-left: 0.2em;
+	}
+
+	.mono ol {
+		padding-inline-start: 2em;
+	}
+
+	.mono ol > li {
+		text-indent: -0.4em;
+	}
+
+	.toggle {
+		padding-inline-start: 0em;
+		list-style-type: none;
+	}
+
+	/* Indent toggle children */
+	.toggle > li > details {
+		padding-left: 1.7em;
+	}
+
+	.toggle > li > details > summary {
+		margin-left: -1.1em;
+	}
+
+	.selected-value {
+		display: inline-block;
+		padding: 0 0.5em;
+		background: rgba(206, 205, 202, 0.5);
+		border-radius: 3px;
+		margin-right: 0.5em;
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+		white-space: nowrap;
+	}
+
+	.collection-title {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	time {
+		opacity: 0.5;
+	}
+
+	.icon {
+		display: inline-block;
+		max-width: 1.2em;
+		max-height: 1.2em;
+		text-decoration: none;
+		vertical-align: text-bottom;
+		margin-right: 0.5em;
+	}
+
+	img.icon {
+		border-radius: 3px;
+	}
+
+	.user-icon {
+		width: 1.5em;
+		height: 1.5em;
+		border-radius: 100%;
+		margin-right: 0.5rem;
+	}
+
+	.user-icon-inner {
+		font-size: 0.8em;
+	}
+
+	.text-icon {
+		border: 1px solid #000;
+		text-align: center;
+	}
+
+	.page-cover-image {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+		height: 30vh;
+	}
+
+	.page-header-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.page-header-icon-with-cover {
+		margin-top: -0.72em;
+		margin-left: 0.07em;
+	}
+
+	.page-header-icon img {
+		border-radius: 3px;
+	}
+
+	.link-to-page {
+		margin: 1em 0;
+		padding: 0;
+		border: none;
+		font-weight: 500;
+	}
+
+	p > .user {
+		opacity: 0.5;
+	}
+
+	td > .user,
+	td > time {
+		white-space: nowrap;
+	}
+
+	input[type="checkbox"] {
+		transform: scale(1.5);
+		margin-right: 0.6em;
+		vertical-align: middle;
+	}
+
+	p {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	.image {
+		border: none;
+		margin: 1.5em 0;
+		padding: 0;
+		border-radius: 0;
+		text-align: center;
+	}
+
+	.code,
+	code {
+		background: rgba(135, 131, 120, 0.15);
+		border-radius: 3px;
+		padding: 0.2em 0.4em;
+		border-radius: 3px;
+		font-size: 85%;
+		tab-size: 2;
+	}
+
+	code {
+		color: #eb5757;
+	}
+
+	.code {
+		padding: 1.5em 1em;
+	}
+
+	.code > code {
+		background: none;
+		padding: 0;
+		font-size: 100%;
+		color: inherit;
+	}
+
+	blockquote {
+		font-size: 1.25em;
+		margin: 1em 0;
+		padding-left: 1em;
+		border-left: 3px solid rgb(55, 53, 47);
+	}
+
+	.bookmark {
+		text-decoration: none;
+		max-height: 8em;
+		padding: 0;
+		display: flex;
+		width: 100%;
+		align-items: stretch;
+	}
+
+	.bookmark-title {
+		font-size: 0.85em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 1.75em;
+		white-space: nowrap;
+	}
+
+	.bookmark-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.bookmark-info {
+		flex: 4 1 180px;
+		padding: 12px 14px 14px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.bookmark-image {
+		width: 33%;
+		flex: 1 1 180px;
+		display: block;
+		position: relative;
+		object-fit: cover;
+		border-radius: 1px;
+	}
+
+	.bookmark-description {
+		color: rgba(55, 53, 47, 0.6);
+		font-size: 0.75em;
+		overflow: hidden;
+		max-height: 4.5em;
+		word-break: break-word;
+	}
+
+	.bookmark-href {
+		font-size: 0.75em;
+		margin-top: 0.25em;
+	}
+
+	.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+	.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+	.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+	.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+	.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+	.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+	.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+	.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+	.highlight-default {
+	}
+	.highlight-gray {
+		color: rgb(155,154,151);
+	}
+	.highlight-brown {
+		color: rgb(100,71,58);
+	}
+	.highlight-orange {
+		color: rgb(217,115,13);
+	}
+	.highlight-yellow {
+		color: rgb(223,171,1);
+	}
+	.highlight-teal {
+		color: rgb(15,123,108);
+	}
+	.highlight-blue {
+		color: rgb(11,110,153);
+	}
+	.highlight-purple {
+		color: rgb(105,64,165);
+	}
+	.highlight-pink {
+		color: rgb(173,26,114);
+	}
+	.highlight-red {
+		color: rgb(224,62,62);
+	}
+	.highlight-gray_background {
+		background: rgb(235,236,237);
+	}
+	.highlight-brown_background {
+		background: rgb(233,229,227);
+	}
+	.highlight-orange_background {
+		background: rgb(250,235,221);
+	}
+	.highlight-yellow_background {
+		background: rgb(251,243,219);
+	}
+	.highlight-teal_background {
+		background: rgb(221,237,234);
+	}
+	.highlight-blue_background {
+		background: rgb(221,235,241);
+	}
+	.highlight-purple_background {
+		background: rgb(234,228,242);
+	}
+	.highlight-pink_background {
+		background: rgb(244,223,235);
+	}
+	.highlight-red_background {
+		background: rgb(251,228,228);
+	}
+	.block-color-default {
+		color: inherit;
+		fill: inherit;
+	}
+	.block-color-gray {
+		color: rgba(55, 53, 47, 0.6);
+		fill: rgba(55, 53, 47, 0.6);
+	}
+	.block-color-brown {
+		color: rgb(100,71,58);
+		fill: rgb(100,71,58);
+	}
+	.block-color-orange {
+		color: rgb(217,115,13);
+		fill: rgb(217,115,13);
+	}
+	.block-color-yellow {
+		color: rgb(223,171,1);
+		fill: rgb(223,171,1);
+	}
+	.block-color-teal {
+		color: rgb(15,123,108);
+		fill: rgb(15,123,108);
+	}
+	.block-color-blue {
+		color: rgb(11,110,153);
+		fill: rgb(11,110,153);
+	}
+	.block-color-purple {
+		color: rgb(105,64,165);
+		fill: rgb(105,64,165);
+	}
+	.block-color-pink {
+		color: rgb(173,26,114);
+		fill: rgb(173,26,114);
+	}
+	.block-color-red {
+		color: rgb(224,62,62);
+		fill: rgb(224,62,62);
+	}
+	.block-color-gray_background {
+		background: rgb(235,236,237);
+	}
+	.block-color-brown_background {
+		background: rgb(233,229,227);
+	}
+	.block-color-orange_background {
+		background: rgb(250,235,221);
+	}
+	.block-color-yellow_background {
+		background: rgb(251,243,219);
+	}
+	.block-color-teal_background {
+		background: rgb(221,237,234);
+	}
+	.block-color-blue_background {
+		background: rgb(221,235,241);
+	}
+	.block-color-purple_background {
+		background: rgb(234,228,242);
+	}
+	.block-color-pink_background {
+		background: rgb(244,223,235);
+	}
+	.block-color-red_background {
+		background: rgb(251,228,228);
+	}
+	.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+	.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+	.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+	.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+	.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+	.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+	.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+	.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+	.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+	.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+	.checkbox {
+		display: inline-flex;
+		vertical-align: text-bottom;
+		width: 16;
+		height: 16;
+		background-size: 16px;
+		margin-left: 2px;
+		margin-right: 5px;
+	}
+
+	.checkbox-on {
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+	}
+
+	.checkbox-off {
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+	}
+	</style>
+	<meta name="description" content="A collection of helpful resources">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+
+  <link rel="shortcut icon" href="images/Logo.png">
+  <link rel="apple-touch-icon" href="images/Logo.png">
+
+  <meta name="theme-color" content="#111111">
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="tachyons.css">
+
+  <script data-ad-client="ca-pub-8685798272910477" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="">
+
+	<article id="edcaff73-1c26-4ec0-a01b-8c2a3ab31aaa" class="page serif"><header><img class="page-cover-image" src="Study%20Club%201%20Getting%20started%20with%20Anki%20ft%20Danki%20edcaff731c264ec0a01b8c2a3ab31aaa/Notion_cover.jpg" style="object-position:center 50%"/><h1 class="page-title">Study Club #1 – Getting started with Anki (ft. Danki)</h1></header><div class="page-body"><figure id="ea63ed14-9358-4ea4-8a59-79f0258a4049"><div class="source"><div data-block-id="ea63ed14-9358-4ea4-8a59-79f0258a4049" class="notion-selectable notion-video-block" style="width: 100%; max-width: 317px; align-self: center; margin-top: 2px; margin-bottom: 4px;"><div embed-ghost=""><div style="display: flex;"><div class="notion-cursor-default" style="position: relative; overflow: hidden; flex-grow: 1;"><div style="position: relative;"><div style="position: relative;"><div style="display: block; width: 100%; pointer-events: none; background-color: rgb(242, 241, 238);"><div style="position: relative; display: flex; justify-content: center; width: 100%; min-height: 200px; height: 0px; padding-bottom: 56.2061%;"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; border-radius: 1px;"><div style="height: 100%; width: 100%;"><iframe src="https://www.youtube.com/embed/59X_0Iy5qhc" frameborder="0" sandbox="allow-scripts allow-popups allow-top-navigation-by-user-activation allow-forms allow-same-origin" allowfullscreen="" loading="lazy" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; border-radius: 1px; pointer-events: auto; background-color: rgb(247, 246, 245);"></iframe></div></div></div></div></div></div><div style="position: absolute; top: 4px; right: 4px; border-radius: 3px; color: white; fill: white; font-size: 11.5px; background: rgba(0, 0, 0, 0.6); display: flex; white-space: nowrap; max-width: calc(100% - 16px); overflow: hidden; pointer-events: none; opacity: 0; transition: opacity 300ms ease-in 0s; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, &quot;Apple Color Emoji&quot;, Arial, sans-serif, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; z-index: 2;"><div role="button" tabindex="0" style="user-select: none; transition: background 120ms ease-in 0s; cursor: pointer; display: flex; align-items: center; padding: 4px 6px; border-right: 1px solid rgba(255, 255, 255, 0.2);">View original</div></div></div></div></div></div></div></figure><h2 id="79d09aff-9a92-4340-9efa-c95c9a8fdeb0" class="">Show notes</h2><h3 id="1aefa242-8b1c-4f93-a430-b159577bf757" class="">Timestamps</h3><p id="7ddff7ff-c244-4a6c-ae96-29c2ae14e249" class="">01:40 – Introduction to Anki</p><p id="f43bffa3-c003-423f-9050-0044696984ff" class="">02:40 – Settings/options</p><p id="84f591c4-ac24-4a6b-93c4-fa88e6153fdf" class="">16:00 – How premade decks can work with your study</p><p id="512d1413-9ef9-462b-a448-6c38846fd3c1" class="">19:55 – Making your own (incl Cloze + Image occlusion)</p><p id="00d3e505-9a44-4c56-b8c9-993303c75b4f" class="">27:20 – Flagging</p><p id="978f9883-2c52-48a3-b41b-ff27082e7656" class="">28:15 – Q: Could you go over suspending and burying cards once again?</p><p id="362a2d77-a771-4b94-bf97-62ba2b75ffaa" class="">30:15 – Q: Any other tips on using Anki in your study?</p><p id="cabc14a3-25e1-4766-a2a2-9b7ed9e1c654" class="">31:10 – Q: How many cards do you make per lecture?</p><p id="f6b78c69-6175-4904-8f90-98aaab5f0586" class="">33:45 – Q: Would you please go over cloze deletions again?</p><p id="c826302a-9d0a-4c9f-9942-987f3e42e45f" class="">35:55 – Q: Did you find a difference between learning concepts and facts using Anki - if so, how did you learn concepts?</p><p id="90fc2cd5-0983-49fd-8ce7-20dda6366e36" class="">37:45 – Q: Is there any reason you do close deletes in Q&amp;A form rather than as a statement?</p><p id="a53dca97-3fec-4e25-bc04-6a205be16958" class="">39:05 – Q: What add-ons do you recommend?</p><p id="affc0e43-35ed-4277-a2cc-4b340ea2cfcc" class="">40:02 – Q: Are you worried about losing cards from your decks? Do you backup your deck anywhere other than AnkiWeb?</p><p id="0dda2766-e59e-4374-8658-6ad3215f4f5b" class="">42:08 – Q: Should you give up on reviewing cards (ie. end of year/sem)?</p><h3 id="eb37a84e-3102-4113-a2e7-e84205046fb5" class="">Resources</h3><p id="b7aba009-0a28-4af2-93a0-ea88a99aa183" class="">The Danki Year 1 Deck:</p><figure id="461a7489-dd56-4e22-88de-2abf60b63d9a"><a href="https://drive.google.com/drive/u/2/folders/1z0Ho8LaJxmiMyNWudrgNwGNsyOuvjUC5" class="block-color-teal bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Meet Google Drive - One place for all your files</div><div class="bookmark-description">Google Drive is a free way to keep your files backed up and easy to reach from any phone, tablet, or computer. Start with 15GB of Google storage - free.</div></div><div class="bookmark-href"><img src="https://accounts.google.com/favicon.ico" class="icon bookmark-icon"/>https://drive.google.com/drive/u/2/folders/1z0Ho8LaJxmiMyNWudrgNwGNsyOuvjUC5</div></div><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="bookmark-image"/></a></figure><p id="05bcbcc7-f9f5-4325-8ca9-2c281b9c5c33" class="">Cool Anki add-ons:</p><figure id="3871abc3-a86f-4ef6-a209-3c3d6e8a90a2"><a href="https://ankiweb.net/shared/info/1374772155" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Image Occlusion Enhanced for Anki 2.1 (alpha)</div><div class="bookmark-description">0.99MB. Updated 2020-04-28. Only supports Anki 2.1.x. As add-ons are programs downloaded from the internet, they are potentially malicious. You should only download add-ons you trust.</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/1374772155</div></div></a></figure><figure id="7743a18e-e0fb-4b06-8124-ed44fa1470c3"><a href="https://ankiweb.net/shared/info/516643804" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Frozen Fields</div><div class="bookmark-description">0.02MB. Updated 2020-03-01. As add-ons are programs downloaded from the internet, they are potentially malicious. You should only download add-ons you trust. Supported Anki versions: 2.1.0-2.1.21+ (updated 2020-03-01) To download this add-on, please copy and paste the following code into Anki 2.1: 516643804 If you were linked to this page from the internet, please open Anki on your computer, go to the Tools menu and then Add-ons&gt;Browse &amp; Install to paste in the code.</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/516643804</div></div></a></figure><figure id="31299e95-f41f-47ce-acce-9795aafcd2ec"><a href="https://ankiweb.net/shared/info/2091361802" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Progress Bar</div><div class="bookmark-description">Browse &amp; Install to paste in the code. This add-on previously supported Anki 2.0. You can download the last version supporting 2.0here. As Anki 2.0 has been discontinued, no support is available for this version. All Anki 2.1.x Add-Ons Ask a Question on 1589173215 on 1586853393 Great app, shows your progress in each deck!</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/2091361802</div></div><img src="https://i.ytimg.com/vi/UkveLkAgXiM/mqdefault.jpg" class="bookmark-image"/></a></figure><figure id="827f6087-12e1-4150-b2ad-8b3f9de5d9ed"><a href="https://ankiweb.net/shared/info/153625306" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Pop-up Dictionary (beta)</div><div class="bookmark-description">0.08MB. Updated 2019-03-24. As add-ons are programs downloaded from the internet, they are potentially malicious. You should only download add-ons you trust. To download this add-on, please copy and paste the following code into Anki 2.1: 153625306 If you were linked to this page from the internet, please open Anki on your computer, go to the Tools menu and then Add-ons&gt;Browse &amp; Install to paste in the code.</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/153625306</div></div></a></figure><figure id="190c617e-8b19-420f-86c5-2164a51a199b"><a href="https://ankiweb.net/shared/info/738807903" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">More Overview Stats 2.1</div><div class="bookmark-description">Browse &amp; Install to paste in the code. This add-on previously supported Anki 2.0. You can download the last version supporting 2.0here. As Anki 2.0 has been discontinued, no support is available for this version. All Anki 2.1.x Add-Ons Ask a Question on 1589067103 The stats help me learn more about the composition of my deck.</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/738807903</div></div><img src="https://i.postimg.cc/WzPHRmX9/3e1e95a724.png" class="bookmark-image"/></a></figure><figure id="6d182fe2-3a08-43c0-86eb-d0e971b06058"><a href="https://ankiweb.net/shared/info/1556734708" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">More Decks Stats and Time Left</div><div class="bookmark-description">Browse &amp; Install to paste in the code. This add-on previously supported Anki 2.0. You can download the last version supporting 2.0here. As Anki 2.0 has been discontinued, no support is available for this version. All Anki 2.1.x Add-Ons Ask a Question on 1589067068 Showing the review rate helps me keep pace on my studying.</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/1556734708</div></div></a></figure><figure id="00dee074-7ad6-4308-9512-9c07a3c694c9"><a href="https://ankiweb.net/shared/info/1771074083" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Review Heatmap</div><div class="bookmark-description">0.07MB. Updated 2017-02-19. Only supports Anki 2.0.x. As add-ons are programs downloaded from the internet, they are potentially malicious. You should only download add-ons you trust. This add-on previously supported Anki 2.0. You can download the last version supporting 2.0here. As Anki 2.0 has been discontinued, no support is available for this version.</div></div><div class="bookmark-href"><img src="https://ankiweb.net/favicon.ico" class="icon bookmark-icon"/>https://ankiweb.net/shared/info/1771074083</div></div><img src="https://raw.githubusercontent.com/Glutanimate/review-heatmap/master/screenshots/review-heatmap-1.png" class="bookmark-image"/></a></figure></div></article>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="main.js" charset="utf-8"></script>
+
+</body>
+</html>
